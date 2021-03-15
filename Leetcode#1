@@ -33,18 +33,17 @@ SOLUTION -----------------------------------------------------------------------
 public class Solution {
     public int[] TwoSum(int[] nums, int target) 
     {
-        //using brute force
+        //looping through the array
         for(int i = 0; i < nums.Length; i++)
         {
-            
+            //creating a 2nd pointer here to scan the array
             for(int j = i + 1; j < nums.Length; i++)
-            {
                 if(nums[i] + nums[j] == target)
                 {
                     return new int[] {i, j};
-                }
-            }
+                }  
         }
+        //if the target isn't found we will throw a new exception
         throw new Exception("Target not found");
     }
 }
