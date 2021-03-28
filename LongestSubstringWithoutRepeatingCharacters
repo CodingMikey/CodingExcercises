@@ -17,4 +17,45 @@ Explanation: The answer is "b", with the length of 1.
 
 ------------------------------------------------------------------------------------------------------------------
 
+public class Solution
+    {
+        public int LengthOfLongestSubstring(string s)
+        {
+            int res = 0;
+            int l = 0;
+            int r = l;
+            Dictionary<char, int> char2Idx = new Dictionary<char, int>();
 
+            while (l < s.Length && r < s.Length)
+            {
+                r = Math.Max(r, l);
+
+                while (r < s.Length)
+                {
+                    char c = s[r];
+                    if (!char2Idx.ContainsKey(c))
+                    {
+                        res = Math.Max(res, r - l + 1);
+                        char2Idx.Add(c, r);
+                        r++;
+                        continue;
+                    }
+
+                    int repeated = char2Idx[c];
+
+                    for (int i = l; i <= repeated; i++)
+                    {
+                        char2Idx.Remove(s[i]);
+                    }
+
+                    char2Idx[c] = r;
+                    l = repeated + 1;
+                    r++;
+
+                    break;
+                }
+            }
+
+            return res;
+        }
+    }
