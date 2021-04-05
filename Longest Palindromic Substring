@@ -17,3 +17,66 @@ Example 3:
 
 Input: s = "a"
 Output: "a"
+
+
+
+-----------------------------------------------------------SOLUTION-------------------------------------------------------------------------------------------------
+
+ public class Solution
+    {
+        public string LongestPalindrome(string s)
+        {
+            bool[,] dp = new bool[s.Length, s.Length];
+
+            string res = string.Empty;
+            int max = 0;
+
+            for (int length = 1; length <= s.Length; length++)
+            {
+                for (int start = 0; start < s.Length; start++)
+                {
+                    int end = start + length - 1;
+
+                    if (end >= s.Length)
+                    {
+                        break;
+                    }
+
+                    if (start == end)
+                    {
+                        dp[start, end] = true;
+
+                        if (length > max)
+                        {
+                            max = length;
+                            res = s.Substring(start, length);
+                        }
+
+                        continue;
+                    }
+
+                    if (length == 2)
+                    {
+                        dp[start, end] = (s[start] == s[end]);
+
+                        if (length > max && dp[start, end])
+                        {
+                            max = length;
+                            res = s.Substring(start, length);
+                        }
+                        continue;
+                    }
+
+                    dp[start, end] = dp[start + 1, end - 1] && (s[start] == s[end]);
+
+                    if (length > max && dp[start, end])
+                    {
+                        max = length;
+                        res = s.Substring(start, length);
+                    }
+                }
+            }
+
+            return res;
+        }
+    }
