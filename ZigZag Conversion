@@ -28,3 +28,35 @@ Y A   H R
 P     I
 
 --------------------------------------------------------------------SOLUTION------------------------------------------------------------------------------------------
+
+
+public class Solution {
+    public string Convert(string s, int numRows) {
+        if(numRows == 1)
+            return s;
+        StringBuilder sb = new StringBuilder();
+        for(int i = 0; i < numRows; i ++)
+        {
+            bool b = true;
+            int j = i;
+            int jj = -1;
+            while(j < s.Length)
+            {
+                if(jj != j)
+                {
+                    jj = j;
+                    sb.Append(s[j]);
+                }
+                
+                if(b)
+                    j = j + (numRows - i - 1 ) * 2 ;
+                else
+                    j = j + (i * 2);
+                
+                b = !b;
+            }
+        }
+        
+        return sb.ToString();
+    }
+}
