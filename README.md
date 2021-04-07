@@ -1,2 +1,1 @@
-# CodingExcercises
-Coding exercises 
+## ⚡️⚡️⚡️ Daily Coding Exercises | From Leetcode & Others ⚡️⚡️⚡️
