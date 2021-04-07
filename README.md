@@ -1,1 +1,1 @@
-## ⚡️⚡️⚡️ Daily Coding Exercises | From Leetcode & Others ⚡️⚡️⚡️
+## ⚡️⚡️⚡️ Daily C# Coding Exercises | From Leetcode & Others ⚡️⚡️⚡️
