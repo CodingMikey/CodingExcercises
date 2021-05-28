@@ -41,3 +41,41 @@ Example 4:
 Input: num = 58
 Output: "LVIII"
 Explanation: L = 50, V = 5, III = 3.
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+public string IntToRoman(int num) {
+		string result= "";
+		int[] nums = new int[] {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
+		Dictionary<int, string> dict = new Dictionary<int, string>();
+		dict.Add(1, "I");
+		dict.Add(4, "IV");
+		dict.Add(5, "V");
+		dict.Add(9, "IX");
+		dict.Add(10, "X");
+		dict.Add(40, "XL");
+		dict.Add(50, "L");
+		dict.Add(90, "XC");
+		dict.Add(100, "C");
+		dict.Add(400, "CD");
+		dict.Add(500, "D");
+		dict.Add(900, "CM");
+		dict.Add(1000, "M");
+
+		for (int i = 0; i < nums.Length; i++) {
+			if (num < nums[i]) continue;
+			if (i % 2 != 0 && num == nums[i]) {
+				result += dict[nums[i]];
+				break;
+			}
+			else {
+				while (num >= nums[i]) {
+					result += dict[nums[i]];
+					num -= nums[i];
+				}
+			}
+		}        
+		return result;         
+	}
+}
