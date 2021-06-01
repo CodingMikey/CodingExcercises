@@ -1,0 +1,66 @@
+using System;
+using System.Collections;
+
+namespace HashTables
+{
+    class Program
+    {
+        // Key - Value Pair
+        // Auto - Car
+        static void Main(string[] args)
+        {
+            // Creating a hash table
+            Hashtable studentsTable = new Hashtable();
+
+            // Initializing new Student objects
+            Student stud1 = new Student(1, "Mariya", 98);
+            Student stud2 = new Student(2, "Petr", 98);
+            Student stud3 = new Student(3, "Roma", 78);
+            Student stud4 = new Student(4, "Yofa", 68);
+
+            // Storing data into hash table
+            studentsTable.Add(stud1.Id, stud1);
+            studentsTable.Add(stud2.Id, stud2);
+            studentsTable.Add(stud3.Id, stud3);
+            studentsTable.Add(stud4.Id, stud4);
+
+            // Retrieve individual item with known ID from hash table
+            Student storedStudent1 = (Student)studentsTable[stud1.Id];
+
+            // Retrieve all values from hash table using casting with temp variable
+            //foreach (DictionaryEntry entry in studentsTable)
+            //{
+            //    Student temp = (Student)entry.Value;
+            //    Console.WriteLine("Student ID:{0}", temp.Id);
+            //    Console.WriteLine("Student Name:{0}", temp.Name);
+            //    Console.WriteLine("Student GPA:{0}", temp.GPA);
+            //}
+
+            // Retrieve all values from hash table
+            foreach (Student value in studentsTable.Values)
+            {
+                Console.WriteLine("Student ID:{0}", value.Id);
+                Console.WriteLine("Student Name:{0}", value.Name);
+                Console.WriteLine("Student GPA:{0}", value.GPA);
+            }
+
+            Console.WriteLine("Student ID:{0}, Name:{1}, GPA{2}", storedStudent1.Id, storedStudent1.Name, storedStudent1.GPA);
+        }
+    }
+
+    class Student
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public float GPA { get; set; }
+
+        //simple constructor
+        public Student(int id, string name, float GPA)
+        {
+            this.Id = id;
+            this.Name = name;
+            this.GPA = GPA;
+        }
+
+    }
+}
