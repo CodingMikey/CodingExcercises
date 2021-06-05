@@ -30,7 +30,7 @@ Only one valid answer exists.
 
 SOLUTION ---------------------------------------------------------------------------------------------------------------------------------------------------
 
-`public class Solution {
+public class Solution {
     public int[] TwoSum(int[] nums, int target) 
     {
         //looping through the array
@@ -46,9 +46,9 @@ SOLUTION -----------------------------------------------------------------------
         //if the target isn't found we will throw a new exception
         throw new Exception("Target not found");
     }
-}`
+}
 
-`public class Solution {
+public class Solution {
     public int[] TwoSum(int[] nums, int target) {
         
         if(nums == null || nums.Length < 2)
@@ -67,4 +67,3 @@ SOLUTION -----------------------------------------------------------------------
         return new int[2];
     }
 }
-`
