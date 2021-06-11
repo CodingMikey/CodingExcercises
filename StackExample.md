@@ -1,5 +1,5 @@
 ## Stack Data Structure Sample 🔧
-```bash
+```csharp
 using System;
 using System.Collections;
 
